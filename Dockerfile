@@ -11,7 +11,7 @@ COPY . .
 RUN apt-get update && apt-get install -y cron
 
 # Installiere notwendige Abhängigkeiten (hier nur requests)
-RUN pip requests
+RUN pip install requests
 
 # Erstelle Crontab-Eintrag für das Python-Skript
 RUN echo "* * * * * /usr/local/bin/python /app/app.py >> /var/log/cron.log 2>&1" > /etc/cron.d/send_data_cron
